@@ -1,18 +1,31 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Empathic Voice Interface</title>
+    <title></title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   </head>
   <body>
     <div id="app">
-      <button id="auth-btn">Authenticate</button>
-      <button id="start-btn" disabled="true">Start</button>
-      <button id="end-btn" disabled="true">End</button>
-      <div id="chat">
-        <h2>Chat</h2>
-      </div>
+        <div id="btn-container">
+            <button id="start-btn">Start</button>
+            <button id="stop-btn" disabled="true">Stop</button>
+        </div>
+        <div id="chat"></div>
+        <div id="input-container">
+            <div id="message-wrapper">
+                <input type="text" id="message-input" placeholder="Type your message...">
+                <div id="button-group">
+                    <button id="send-btn"><i class="fas fa-paper-plane"></i></button>
+                    <button id="mute-btn"><i class="fas fa-microphone"></i></button> <div id="file-upload-container">
+                        <input type="file" id="file-input">
+                        <label for="file-input"><i class="fas fa-paperclip"></i></label>
+                      </div>
+                </div>
+            </div>
+        </div>
     </div>
     <script type="module" src="/src/main.ts"></script>
   </body>
