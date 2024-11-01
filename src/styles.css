@@ -1,0 +1,363 @@
+:root {
+  --primary-color: #ffffff;
+  --secondary-color: #1e2329;
+  --background-color: #1e2329;
+  --chat-bg: #1e2329;
+  --text-color: #ffffff;
+  --border-radius: 25px;
+  --input-bg: #1e2329;
+  --transition: all 0.3s ease;
+  --text-color: #ffffff;
+  --border-radius: 25px;
+
+
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+  color: var(--text-color);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  display: flex;
+  justify-content: center;
+}
+
+#app {
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  background: var(--background-color);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Control Container Styles */
+#control-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  
+  border-radius: var(--border-radius);
+  margin-bottom: 20px;
+}
+
+#start-btn, #stop-btn {
+  background: transparent;
+  border: 1px solid #444;
+  color: #6d6a6a;
+  border-radius: var(--border-radius);
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: var(--transition);
+}
+
+#start-btn:hover, #stop-btn:hover {
+  background: #333;
+  border-color: #555;
+}
+
+#start-btn:disabled, #stop-btn:disabled {
+  background: transparent;
+  border-color: #333;
+  color: #666;
+  cursor: not-allowed;
+}
+
+#start-btn i, #stop-btn i {
+  font-size: 12px;
+}
+
+/* File Upload Styles */
+#file-upload-container {
+  position: relative;
+}
+
+#file-input {
+  display: none;
+}
+
+#file-upload-container label {
+  background: transparent;
+
+  color: var(--text-color);
+  padding: 8px 16px;
+  border-radius: var(--border-radius);
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: var(--transition);
+}
+
+#file-upload-container label:hover {
+  background: #333;
+  border-color: #555;
+}
+
+#file-upload-container i {
+  font-size: 12px;
+}
+
+/* Chat Area */
+#chat {
+  flex: 1;
+  padding: 24px;
+  overflow-y: auto;
+  margin-bottom: 80px;
+}
+
+/* Input Container */
+#input-container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 16px 24px;
+  background: var(--secondary-color);
+  border-top: 1px solid #333;
+}
+
+#message-wrapper {
+  display: flex;
+  gap: 12px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+#message-input {
+  flex: 1;
+  background: var(--input-bg);
+  border: none;
+  border-radius: var(--border-radius);
+  padding: 12px 16px;
+  color: var(--text-color);
+  font-size: 14px;
+}
+
+#message-input:focus {
+  outline: none;
+
+}
+
+#send-btn {
+  background: transparent;
+  border: 1px solid #444;
+  color: var(--text-color);
+  padding: 8px 16px;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+#send-btn:hover {
+  background: #333;
+  border-color: #555;
+}
+
+/* Chat Messages */
+#chat {
+  height: 500px auto;
+  max-height: 80vh;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  padding: 1rem;
+  background: var(--background-color);
+  border-radius: var(--border-radius);
+  margin-bottom: 1rem;
+}
+
+.chat-card {
+  max-width: 70%;
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.chat-card.user {
+  background: #ff0000;
+  color: #ffffff;
+  margin-left: auto;
+  border-bottom-right-radius: 4px;
+  
+}
+
+.chat-card.assistant {
+  background: rgb(8, 0, 255);
+  margin-right: auto;
+  border-bottom-left-radius: 4px;
+}
+
+.chat-card .role {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.chat-card .timestamp {
+  font-size: 0.8rem;
+  opacity: 0.8;
+}
+
+.chat-card .scores {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.8rem;
+  font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  #control-container {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  #message-wrapper {
+    padding: 0 16px;
+  }
+  
+  .chat-card {
+    max-width: 85%;
+  }
+}
+/* Add these styles to your existing CSS */
+
+#input-container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20px;
+  background: var(--background-color);
+  border-top: #1e2329;
+}
+
+#message-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  max-width: 1200px;
+  margin: 0 auto;
+  background: #2c2c2c;
+  border-radius: 25px;
+  padding: 5px;
+}
+
+#message-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  padding: 12px 20px;
+  color: white;
+  font-size: 16px;
+}
+
+#message-input:focus {
+  outline: none;
+}
+
+#message-input::placeholder {
+  color: #888;
+}
+
+#button-group {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding-right: 5px;
+
+}
+
+#send-btn {
+  background: transparent;
+  border: none;
+  color: white;
+  padding: 10px;
+  cursor: pointer;
+  width: auto;
+  box-shadow: none;
+}
+
+#send-btn:hover {
+  background: transparent;
+  color: #888;
+}
+
+#file-upload-container {
+  position: relative;
+}
+
+#file-input {
+  display: none;
+}
+
+#file-upload-container label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  color: white;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+#file-upload-container label:hover {
+  color: #888;
+}
+
+/* Update chat container to accommodate fixed input */
+#chat {
+  margin-bottom: 100px; /* Adjust based on input container height */
+}
+
+/* Make sure the icons are properly sized */
+.fas {
+  font-size: 20px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  #message-wrapper {
+    max-width: 100%;
+  }
+  
+
+
+/* Mute Button */
+#mute-btn {
+  background-color: red; /* Red background */
+  border: none;
+  color: white;
+  padding: 10px;
+  border-radius: 50%; /* Make it circular */
+  cursor: pointer;
+  transition: var(--transition);
+  margin-left: 10px; /* Spacing */
+}
+
+#mute-btn:hover {
+  background-color: darkred; /* Darker red on hover */
+}
+
+#mute-btn i {
+  pointer-events: none;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  #mute-btn {
+    padding: 8px; /* Smaller padding on smaller screens */
+  }
+}}
